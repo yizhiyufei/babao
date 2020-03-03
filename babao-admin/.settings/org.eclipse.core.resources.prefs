@@ -1,0 +1,13 @@
+eclipse.preferences.version=1
+encoding//src/main/java=UTF-8
+encoding//src/main/resources=UTF-8
+encoding//src/main/resources/static/css/style.css=UTF-8
+encoding//src/main/resources/templates/system/member/add.html=UTF-8
+encoding//src/main/resources/templates/system/member/editPwd.html=UTF-8
+encoding//src/main/resources/templates/system/member/member.html=UTF-8
+encoding//src/main/resources/templates/system/role/role.html=UTF-8
+encoding//src/main/resources/templates/system/role/rolee.html=UTF-8
+encoding//src/main/resources/templates/tool/resetPwd.html=UTF-8
+encoding//src/test/java=UTF-8
+encoding//src/test/resources=UTF-8
+encoding/<project>=UTF-8

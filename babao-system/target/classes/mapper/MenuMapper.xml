@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.babao.system.mapper.MenuMapper">
+	<resultMap id="menuResult" type="Menu">
+		<id property="menuId" column="menu_id"/>
+		<result property="menuName" column="menu_name"/>
+		<result property="orderNum" column="order_num"/>
+		<result property="url" column="url"/>
+		<result property="menuType" column="menu_type"/>
+		<result property="icon" column="icon"/>
+		<result property="remark" column="remark"/>
+		<collection property="children" ofType="Menu" column="menu_id" select="selectMenuByParentId"/>			
+	</resultMap>
+	
+	<sql id="selectMenuVo">
+		SELECT menu_id,menu_name,parent_id,order_num,url,menu_type,icon,remark FROM menu WHERE visible = 0
+	</sql>
+	
+	
+	<select id="selectMenuAll" resultMap="menuResult">
+		<include refid="selectMenuVo"/>
+		 and menu_type = 'C' and visible = 0 ORDER BY order_num;
+	</select>
+	
+	<select id="selectMenuByParentId" resultType="Menu">
+        <include refid="selectMenuVo"/>
+         and parent_id = #{menuId} ORDER BY order_num
+    </select>
+
+</mapper> 

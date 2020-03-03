@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+	<th:block th:include="include :: header('瑙掕壊鍒楄〃')" />
+</head>
+<body class="gray-bg">
+	<div class="container-div">
+		<div class="row">
+			<div class="col-sm-12 search-collapse">
+				<form id="role-form">
+					<div class="select-list">
+						<ul>
+							<li>
+								瑙掕壊鍚嶇О锛�<input type="text" name="roleName"/>
+							</li>
+							<li>
+								鏉冮檺瀛楃锛�<input type="text" name="roleKey"/>
+							</li>
+							<li>
+								瑙掕壊鐘舵�侊細<select name="status">
+									<option value="2">哈哈</option>
+									<option value="1"></option>
+								</select>
+							</li>
+							<li class="select-time">
+								<label>鍒涘缓鏃堕棿锛� </label>
+								<input type="text" class="time-input" id="startTime" placeholder="寮�濮嬫椂闂�" name="params[beginTime]"/>
+								<span>-</span>
+								<input type="text" class="time-input" id="endTime" placeholder="缁撴潫鏃堕棿" name="params[endTime]"/>
+							</li>
+							<li>
+								<a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;鎼滅储</a>
+							    <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;閲嶇疆</a>
+							</li>
+						</ul>
+					</div>
+				</form>
+			</div>
+		
+			<div class="btn-group-sm" id="toolbar" role="group">
+				<a class="btn btn-success">
+	                <i class="fa fa-plus"></i> 鏂板
+	            </a>
+	            <a class="btn btn-primary btn-edit disabled">
+		            <i class="fa fa-edit"></i> 淇敼
+		        </a>
+				<a class="btn btn-danger btn-del disabled">
+		            <i class="fa fa-remove"></i> 鍒犻櫎
+		        </a>
+		        <a class="btn btn-warning">
+		            <i class="fa fa-download"></i> 瀵煎嚭
+		        </a>
+	        </div>
+	        
+	        <div class="col-sm-12 select-table table-striped">
+			    <table id="bootstrap-table" data-mobile-responsive="true"></table>
+			</div>
+		</div>
+	</div>
+	<th:block th:include="include :: footer" />
+	<script th:inline="javascript">
+		var editFlag = [[${@permission.hasPermi('system:role:edit')}]];
+		var removeFlag = [[${@permission.hasPermi('system:role:remove')}]];
+		var prefix = ctx + "system/role";
+		
+
+		$(function() {
+		    var options = {
+		        url: prefix + "/list",
+		        createUrl: prefix + "/add",
+		        updateUrl: prefix + "/edit/{id}",
+		        removeUrl: prefix + "/remove",
+		        exportUrl: prefix + "/export",
+		        sortName: "roleSort",
+		        modalName: "瑙掕壊",
+		        columns: [{
+		            checkbox: true
+		        },
+		        {
+		            field: 'roleId',
+		            title: '瑙掕壊缂栧彿'
+		        },
+		        {
+		            field: 'roleName',
+		            title: '瑙掕壊鍚嶇О',
+		            sortable: true
+		        },
+		        {
+		            field: 'roleKey',
+		            title: '鏉冮檺瀛楃',
+		            sortable: true
+		        },
+		        {
+		            field: 'roleSort',
+		            title: '鏄剧ず椤哄簭',
+		            sortable: true
+		        },
+		        {
+		        	visible: editFlag == 'hidden' ? false : true,
+		        	title: '瑙掕壊鐘舵��',
+		        	align: 'center',
+		        	formatter: function (value, row, index) {
+		        		return statusTools(row);
+		        	}
+		        },
+		        {
+		            field: 'createTime',
+		            title: '鍒涘缓鏃堕棿',
+		            sortable: true
+		        },
+		        {
+		            title: '鎿嶄綔',
+		            align: 'center',
+		            formatter: function(value, row, index) {
+		                var actions = [];
+		                actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="#" onclick="$.operate.edit(\'' + row.roleId + '\')"><i class="fa fa-edit"></i>缂栬緫</a> ');
+		                actions.push('<a class="btn btn-primary btn-xs ' + editFlag + '" href="#" onclick="authDataScope(\'' + row.roleId + '\')"><i class="fa fa-check-square-o"></i>鏁版嵁鏉冮檺</a> ');
+		                actions.push('<a class="btn btn-info btn-xs ' + editFlag + '" href="#" onclick="authUser(\'' + row.roleId + '\')"><i class="fa fa-user"></i>鍒嗛厤鐢ㄦ埛</a> ');
+		                actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="#" onclick="$.operate.remove(\'' + row.roleId + '\')"><i class="fa fa-remove"></i>鍒犻櫎</a> ');
+		                return actions.join('');
+		            }
+		        }]
+		    };
+		    $.table.init(options);
+		});
+	</script>
+</body>
+</html>

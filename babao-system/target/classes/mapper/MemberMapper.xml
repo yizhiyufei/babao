@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.babao.system.mapper.MemberMapper">
+	<sql id="selectMemberVo">
+		SELECT DISTINCT m.member_id,m.member_account,m.member_name,m.member_status FROM member m 
+		JOIN member_role mr ON m.member_id = mr.member_id 
+		JOIN role r ON mr.role_id = r.role_id
+	</sql>
+	<select id="selectMemberByAccount" parameterType="String" resultType="Member">
+		SELECT * FROM member WHERE member_account = #{memberAccount}
+	</select>
+	
+	<update id="updateMember" parameterType="Member">
+		UPDATE member 
+		<set>	
+			<if test="password != null and password != ''">password = #{password},</if>
+			<if test="salt != null and salt != ''">salt = #{salt},</if>
+			<if test="statusEnum != null">member_status = #{statusEnum},</if>
+		</set>
+		
+		WHERE member_id = #{memberId};
+	</update>
+	
+	<select id="selectMemberById" parameterType="Integer" resultType="Member">
+		SELECT * FROM member WHERE member_id = #{memberId}
+	</select>
+	
+	<select id="selectMemberList" parameterType="Member" resultType="Member">
+		<include refid="selectMemberVo"/>
+		<where>
+			<if test="memberAccount != null and memberAccount != ''">
+				m.member_account LIKE CONCAT('%', #{memberAccount}, '%')
+			</if>
+			<if test="statusEnum != null">
+				AND m.member_status = #{statusEnum}
+			</if>
+			<if test="memberName != null and memberName != ''">
+				AND m.member_name LIKE CONCAT('%', #{memberName}, '%')
+			</if>
+			<if test="roleId != null and roleId != 0">
+				and r.role_id = #{roleId}
+			</if>
+		</where>
+	</select>
+	
+	<delete id="deleteMemberByIds" parameterType="Integer">
+		UPDATE member SET member_status = 3 WHERE member_id IN
+		<foreach collection="array" item="memberId" open="(" separator="," close=")">
+ 			#{memberId}
+        </foreach>
+         AND member_account != 'admin'
+	</delete>
+</mapper> 
