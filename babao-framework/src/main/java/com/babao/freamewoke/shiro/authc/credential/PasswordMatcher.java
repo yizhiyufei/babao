@@ -20,6 +20,7 @@ import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.babao.common.enums.StatusEnum;
+import com.babao.freamewoke.redis.RedisService;
 import com.babao.freamewoke.shiro.password.PasswordService;
 import com.babao.system.domain.Member;
 import com.babao.system.service.MemberService;
@@ -41,6 +42,8 @@ public class PasswordMatcher extends HashedCredentialsMatcher {
 	PasswordService passwordService;
 	@Autowired
 	private MemberService memberService;
+	@Autowired
+	private RedisService redisService;
 
 	@PostConstruct
 	public void init() {
@@ -90,6 +93,7 @@ public class PasswordMatcher extends HashedCredentialsMatcher {
 			}
 			matches = false;		
 		}
+		redisService.countLogin();
 		return matches;		
 	}
 }

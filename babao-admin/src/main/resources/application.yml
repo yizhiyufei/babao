@@ -47,6 +47,13 @@ spring:
     restart:
       # 热部署开关
       enabled: true
+  #redis
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password: 123456
+    
 # MyBatis
 mybatis:
     # 搜索指定包别名
@@ -59,5 +66,4 @@ mybatis:
     # 驼峰式命名映射
     configuration:
       map-underscore-to-camel-case: true
-      
     

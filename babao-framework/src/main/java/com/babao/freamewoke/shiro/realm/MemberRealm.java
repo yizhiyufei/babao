@@ -13,6 +13,8 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import com.babao.freamewoke.redis.RedisService;
 import com.babao.system.domain.Member;
 import com.babao.system.service.MemberService;
 import com.github.pagehelper.util.StringUtil;
@@ -24,8 +26,6 @@ import com.github.pagehelper.util.StringUtil;
 public class MemberRealm extends AuthorizingRealm {
 	@Autowired
 	private MemberService memberService;
-	
-	
 	
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {

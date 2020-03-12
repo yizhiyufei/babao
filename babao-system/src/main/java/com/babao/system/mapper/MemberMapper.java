@@ -15,8 +15,8 @@ import com.babao.system.domain.Member;
 public interface MemberMapper {
 	public Member selectMemberByAccount(String memberAccount);
 	
-	@Insert({"INSERT INTO member(role_id,member_account,member_name,PASSWORD,salt) "
-			+ "VALUE(1,#{memberAccount},#{memberName},#{password},#{salt})"})
+	@Insert({"INSERT INTO member(member_account,member_name,PASSWORD,salt) "
+			+ "VALUE(#{memberAccount},#{memberName},#{password},#{salt})"})
 	public int insertMember(Member member);
 
 	public int updateMember(Member member);
