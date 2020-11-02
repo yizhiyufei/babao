@@ -1,17 +1,12 @@
 package com.babao.freamewoke.shiro.authc.credential;
 
-import java.util.concurrent.atomic.AtomicInteger;
-
-import javax.annotation.PostConstruct;
-
-import org.apache.shiro.authc.AuthenticationInfo;
-import org.apache.shiro.authc.AuthenticationToken;
-import org.apache.shiro.authc.ExcessiveAttemptsException;
-import org.apache.shiro.authc.IncorrectCredentialsException;
-import org.apache.shiro.authc.LockedAccountException;
-import org.apache.shiro.authc.SaltedAuthenticationInfo;
-import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.authc.credential.DefaultPasswordService;
+import com.babao.common.enums.StatusEnum;
+import com.babao.freamewoke.redis.RedisService;
+import com.babao.freamewoke.shiro.password.PasswordService;
+import com.babao.system.domain.Member;
+import com.babao.system.service.MemberService;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.shiro.authc.*;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.cache.Cache;
 import org.apache.shiro.cache.CacheManager;
@@ -19,13 +14,8 @@ import org.apache.shiro.codec.Base64;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.babao.common.enums.StatusEnum;
-import com.babao.freamewoke.redis.RedisService;
-import com.babao.freamewoke.shiro.password.PasswordService;
-import com.babao.system.domain.Member;
-import com.babao.system.service.MemberService;
-
-import lombok.extern.slf4j.Slf4j;
+import javax.annotation.PostConstruct;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 密码验证
@@ -93,7 +83,8 @@ public class PasswordMatcher extends HashedCredentialsMatcher {
 			}
 			matches = false;		
 		}
-		redisService.countLogin();
+		//TODO 统计登录人数，redis未安装
+//		redisService.countLogin();
 		return matches;		
 	}
 }

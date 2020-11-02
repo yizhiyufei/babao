@@ -13,7 +13,6 @@
 		<module>babao-system</module>
 		<module>babao-framework</module>
 		<module>babao-admin</module>
-		<module>babao-test</module>
 	</modules>
 
 	<properties>
