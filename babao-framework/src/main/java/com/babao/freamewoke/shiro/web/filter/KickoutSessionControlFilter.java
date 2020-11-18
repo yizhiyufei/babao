@@ -1,19 +1,11 @@
 package com.babao.freamewoke.shiro.web.filter;
 
-import java.io.Serializable;
-import java.util.Arrays;
-import java.util.Deque;
-import java.util.LinkedList;
-
-import javax.annotation.PostConstruct;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-
+import com.babao.system.domain.pojo.Member;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.cache.Cache;
 import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.mgt.DefaultSessionKey;
-import org.apache.shiro.session.mgt.SessionManager;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.AccessControlFilter;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
@@ -21,10 +13,12 @@ import org.apache.shiro.web.util.WebUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
-import com.babao.freamewoke.shiro.session.mgt.OnlineSession;
-import com.babao.system.domain.Member;
-
-import lombok.extern.slf4j.Slf4j;
+import javax.annotation.PostConstruct;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import java.io.Serializable;
+import java.util.Deque;
+import java.util.LinkedList;
 
 /**
  * 并发登录拦截器

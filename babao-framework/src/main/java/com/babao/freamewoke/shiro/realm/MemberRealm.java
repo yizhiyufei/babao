@@ -1,23 +1,15 @@
 package com.babao.freamewoke.shiro.realm;
 
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.AuthenticationInfo;
-import org.apache.shiro.authc.AuthenticationToken;
-import org.apache.shiro.authc.DisabledAccountException;
-import org.apache.shiro.authc.SimpleAuthenticationInfo;
-import org.apache.shiro.authc.UnknownAccountException;
-import org.apache.shiro.authc.UsernamePasswordToken;
+import com.babao.system.domain.pojo.Member;
+import com.babao.system.service.MemberService;
+import com.github.pagehelper.util.StringUtil;
+import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import com.babao.freamewoke.redis.RedisService;
-import com.babao.system.domain.Member;
-import com.babao.system.service.MemberService;
-import com.github.pagehelper.util.StringUtil;
 /**
  * 自定义realm，定义成员登录域
  * @author yizhiyufei

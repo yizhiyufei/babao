@@ -55,15 +55,33 @@ spring:
     password: 123456
     
 # MyBatis
-mybatis:
-    # 搜索指定包别名
-    typeAliasesPackage: com.babao.system.domain
-    type-handlers-package: com.babao.mybatis.handler
-    # 配置mapper的扫描，找到所有的mapper.xml映射文件
-    mapperLocations: classpath:mapper/*Mapper.xml
-    # 加载全局的配置文件
-    # configLocation: classpath:mapper/mybatis-config.xml
-    # 驼峰式命名映射
-    configuration:
-      map-underscore-to-camel-case: true
-    
+#mybatis:
+#    # 搜索指定包别名
+#    typeAliasesPackage: com.babao.system.domain
+#    type-handlers-package: com.babao.mybatis.handler
+#    # 配置mapper的扫描，找到所有的mapper.xml映射文件
+#    mapperLocations: classpath:mapper/*Mapper.xml
+#    # 加载全局的配置文件
+#    # configLocation: classpath:mapper/mybatis-config.xml
+#    # 驼峰式命名映射
+#    configuration:
+#      map-underscore-to-camel-case: true
+mybatis-plus:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.babao.system.domain
+  type-handlers-package: com.babao.mybatis.handler
+  typeEnumsPackage: com.babao.system.domain.enums
+  global-config:
+    db-config:
+      id-type: auto
+      field-strategy: not_empty
+        #驼峰下划线转换
+      column-underline: true
+        #逻辑删除配置
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      db-type: mysql
+    refresh: false
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false

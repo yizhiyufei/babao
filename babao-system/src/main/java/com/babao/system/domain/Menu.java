@@ -2,7 +2,7 @@ package com.babao.system.domain;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.babao.common.croe.domain.BaseEntity;
+
 import com.babao.common.enums.MenuType;
 import com.babao.common.enums.StatusEnum;
 

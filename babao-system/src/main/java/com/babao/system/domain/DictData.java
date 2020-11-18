@@ -2,7 +2,6 @@ package com.babao.system.domain;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-import com.babao.common.croe.domain.BaseEntity;
 
 /**
  * 字典数据表 dict_data

@@ -1,11 +1,7 @@
 package com.babao.freamewoke.shiro.session;
-import org.apache.shiro.SecurityUtils;
+import com.babao.freamewoke.shiro.session.mgt.OnlineSession;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.SessionListenerAdapter;
-import org.springframework.beans.BeanUtils;
-
-import com.babao.freamewoke.shiro.session.mgt.OnlineSession;
-import com.babao.system.domain.Member;
 
 public class StartSessionListener extends SessionListenerAdapter {
 	@Override

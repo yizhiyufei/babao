@@ -14,12 +14,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
-        
-        <!--开启 cache 缓存-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-cache</artifactId>
-        </dependency>
+
 
         <!-- spring-boot-devtools -->
 		<dependency>
@@ -52,8 +47,14 @@
             <groupId>com.babao</groupId>
             <artifactId>babao-framework</artifactId>
         </dependency>
-        
-    </dependencies>
+
+       <dependency>
+           <groupId>org.springframework.boot</groupId>
+           <artifactId>spring-boot-starter-test</artifactId>
+           <scope>test</scope>
+       </dependency>
+
+   </dependencies>
 
     <build>
         <plugins>

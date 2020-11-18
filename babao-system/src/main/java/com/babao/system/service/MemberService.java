@@ -1,8 +1,8 @@
 package com.babao.system.service;
 
-import java.util.List;
+import com.babao.system.domain.pojo.Member;
 
-import com.babao.system.domain.Member;
+import java.util.List;
 
 /**
  * 成员信息 服务层
