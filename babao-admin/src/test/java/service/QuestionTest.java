@@ -2,7 +2,7 @@ import com.babao.BabaoApplication;
 import com.babao.system.domain.enums.QuestionEnum;
 import com.babao.system.domain.pojo.Answer;
 import com.babao.system.domain.pojo.Question;
-import com.babao.system.service.QuestionService;
+import com.babao.system.service.impl.QuestionService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,7 +32,6 @@ public class QuestionTest {
                 .quLevel(1)
                 .quType(QuestionEnum.SINGLE)
                 .courseId(2)
-                .answer(new Answer("自己不会百度吗"))
                 .build();
 
         q.setCreateBy(1);

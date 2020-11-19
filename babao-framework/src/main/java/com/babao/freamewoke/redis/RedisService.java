@@ -30,6 +30,8 @@ public class RedisService {
 
 	/**
 	 * 保存答案
+	 * 正确答案保存在String
+	 * 选择项保存在Set
 	 * @param key
 	 * @param answer
 	 */

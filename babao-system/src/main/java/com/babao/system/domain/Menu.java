@@ -6,7 +6,7 @@ import java.util.List;
 import com.babao.common.enums.MenuType;
 import com.babao.common.enums.StatusEnum;
 
-public class Menu extends BaseEntity{
+public class Menu extends BaseEntity {
     
     /** 菜单ID */
     private Integer menuId;

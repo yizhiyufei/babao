@@ -1,7 +1,6 @@
 package com.babao.system.service;
 
 import com.babao.system.domain.BaseEntity;
-
 import java.util.List;
 
 /**

@@ -1,7 +1,8 @@
-package com.babao.system.service;
+package com.babao.system.service.impl;
 
 import com.babao.system.domain.pojo.Question;
 import com.babao.system.mapper.QuestionMapper;
+import com.babao.system.service.BaseService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
