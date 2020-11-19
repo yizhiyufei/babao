@@ -1,9 +1,9 @@
-//package com.babao.system.mapper;
-//
-//import java.util.List;
-//
-//import com.babao.system.domain.Menu;
-//
-//public interface MenuMapper {
-//	List<Menu> selectMenuAll();
-//}
+package com.babao.system.mapper;
+
+import com.babao.system.domain.Menu;
+
+import java.util.List;
+
+public interface MenuMapper {
+	List<Menu> selectMenuAll();
+}

@@ -21,7 +21,7 @@ import java.util.List;
 public class QuestionService implements BaseService<Question> {
     @Autowired
     private QuestionMapper questionMapper;
-    @Autowired
+//    @Autowired
 //    private
 
     /**

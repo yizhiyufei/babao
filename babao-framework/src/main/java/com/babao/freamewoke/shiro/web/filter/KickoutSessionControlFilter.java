@@ -1,6 +1,6 @@
 package com.babao.freamewoke.shiro.web.filter;
 
-import com.babao.system.domain.pojo.Member;
+import com.babao.system.domain.pojo.Account;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.cache.Cache;
 import org.apache.shiro.cache.CacheManager;
@@ -72,7 +72,7 @@ public class KickoutSessionControlFilter extends AccessControlFilter {
     @Override
     protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
         Subject subject = getSubject(request, response);       
-        Member member = (Member) subject.getPrincipal();
+        Account member = (Account) subject.getPrincipal();
         Session session = subject.getSession();       
         String username = member.getMemberAccount();
         Serializable sessionId = session.getId();

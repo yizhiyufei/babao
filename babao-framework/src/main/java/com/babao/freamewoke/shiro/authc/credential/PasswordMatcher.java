@@ -3,8 +3,7 @@ package com.babao.freamewoke.shiro.authc.credential;
 import com.babao.common.enums.StatusEnum;
 import com.babao.freamewoke.redis.RedisService;
 import com.babao.freamewoke.shiro.password.PasswordService;
-import com.babao.system.domain.pojo.Member;
-import com.babao.system.service.MemberService;
+import com.babao.system.service.impl.AccountService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
@@ -13,7 +12,7 @@ import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.codec.Base64;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import com.babao.system.domain.pojo.Account;
 import javax.annotation.PostConstruct;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -31,7 +30,7 @@ public class PasswordMatcher extends HashedCredentialsMatcher {
 	@Autowired
 	PasswordService passwordService;
 	@Autowired
-	private MemberService memberService;
+	private AccountService memberService;
 	@Autowired
 	private RedisService redisService;
 
@@ -55,7 +54,7 @@ public class PasswordMatcher extends HashedCredentialsMatcher {
 		boolean matches =  tokenHashedCredentials.equals( accountCredentials);
 		AtomicInteger retryCount = retryPassword.get(account);
 		boolean retryNull = retryCount == null;
-		Member member = (Member) info.getPrincipals().getPrimaryPrincipal();
+		Account member = (Account) info.getPrincipals().getPrimaryPrincipal();
 		
 		/**
 		 * 如果验证成功，缓存中值又不存在，代表缓存超时，改回用户状态为OK

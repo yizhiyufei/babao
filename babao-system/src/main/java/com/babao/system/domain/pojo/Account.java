@@ -8,7 +8,7 @@ import com.babao.system.domain.BaseEntity;
  * @author yizhiyufei
  *
  */
-public class Member extends BaseEntity {
+public class Account extends BaseEntity {
 	private Integer memberId;
 	private String memberAccount;
 	private String memberName;
@@ -70,7 +70,7 @@ public class Member extends BaseEntity {
 	public void setMemberStatus(StatusEnum statusEnum) {
 		this.statusEnum = statusEnum;
 	}
-	public Member(Integer roleId, String memberAccount, String memberName, String password, String salt) {
+	public Account(Integer roleId, String memberAccount, String memberName, String password, String salt) {
 		super();
 		this.roleId = roleId;
 		this.memberAccount = memberAccount;
@@ -78,12 +78,12 @@ public class Member extends BaseEntity {
 		this.password = password;
 		this.salt = salt;
 	}
-	public Member() {
+	public Account() {
 		super();
 	}
 	@Override
 	public String toString() {
-		return "Member [memberId=" + memberId + ", memberAccount=" + memberAccount + ", memberName=" + memberName
+		return "Account [memberId=" + memberId + ", memberAccount=" + memberAccount + ", memberName=" + memberName
 				+ ", password=" + password + ", salt=" + salt + ", statusEnum=" + statusEnum + ", avatar=" + avatar
 				+ ", roleId=" + roleId + "]";
 	}

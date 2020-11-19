@@ -2,18 +2,18 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.babao.system.mapper.MemberMapper">
+<mapper namespace="com.babao.system.mapper.AccountMapper">
 	<sql id="selectMemberVo">
-		SELECT DISTINCT m.member_id,m.member_account,m.member_name,m.member_status FROM member m 
-		JOIN member_role mr ON m.member_id = mr.member_id 
+		SELECT DISTINCT m.member_id,m.member_account,m.member_name,m.member_status FROM account m
+		JOIN member_role mr ON m.member_id = mr.member_id
 		JOIN role r ON mr.role_id = r.role_id
 	</sql>
-	<select id="selectMemberByAccount" parameterType="String" resultType="Member">
-		SELECT * FROM member WHERE member_account = #{memberAccount}
+	<select id="selectAccountByAccount" parameterType="String" resultType="account">
+		SELECT * FROM account WHERE member_account = #{memberAccount}
 	</select>
 	
-	<update id="updateMember" parameterType="Member">
-		UPDATE member 
+	<update id="updateAccount" parameterType="account">
+		UPDATE account
 		<set>	
 			<if test="password != null and password != ''">password = #{password},</if>
 			<if test="salt != null and salt != ''">salt = #{salt},</if>
@@ -23,11 +23,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE member_id = #{memberId};
 	</update>
 	
-	<select id="selectMemberById" parameterType="Integer" resultType="Member">
-		SELECT * FROM member WHERE member_id = #{memberId}
+	<select id="selectAccountById" parameterType="Integer" resultType="account">
+		SELECT * FROM account WHERE member_id = #{memberId}
 	</select>
 	
-	<select id="selectMemberList" parameterType="Member" resultType="Member">
+	<select id="selectAccountList" parameterType="account" resultType="account">
 		<include refid="selectMemberVo"/>
 		<where>
 			<if test="memberAccount != null and memberAccount != ''">
@@ -45,8 +45,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</where>
 	</select>
 	
-	<delete id="deleteMemberByIds" parameterType="Integer">
-		UPDATE member SET member_status = 3 WHERE member_id IN
+	<delete id="deleteAccountByIds" parameterType="Integer">
+		UPDATE account SET member_status = 3 WHERE member_id IN
 		<foreach collection="array" item="memberId" open="(" separator="," close=")">
  			#{memberId}
         </foreach>
