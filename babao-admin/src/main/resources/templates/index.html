@@ -36,7 +36,7 @@
         <div class="sidebar-collapse">
             <ul class="nav" id="side-menu">
                 <li class="logo">
-				     <span class="logo-lg">BaBao</span>
+				     <span class="logo-lg">逢考必过</span>
             	</li>
             	<li>
             		<div class="user-panel">
@@ -47,12 +47,19 @@
 					        </div>
 				        </a>
 				        <div class="pull-left info">				        
-				          <p>[[${member.memberName}]]</p>
+				          <p>[[${account.memberName}]]</p>
 				          <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
 				          <a th:href="@{logout}" style="padding-left:5px;"><i class="fa fa-sign-out text-danger"></i> 注销</a>
 				        </div>
 				    </div>
             	</li>
+
+                <li class="active">
+                    <a href="index.html"><i class="fa fa-gear"></i> <span class="nav-label">题库</span> <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li class="active"><a class="menuItem" href="/babao/question/index">试题管理</a></li>
+                    </ul>
+                </li>
             	<!--
                  <li class="active">
                     <a href="index.html"><i class="fa fa-home"></i> <span class="nav-label">系统管理</span> <span class="fa arrow"></span></a>
@@ -62,18 +69,18 @@
                         <li class="active"><a class="menuItem" href="#">角色管理</a></li>
                     </ul>
                 </li>
-                
-                <li class="active">
-                    <a href="index.html"><i class="fa fa-gear"></i> <span class="nav-label">题库管理</span> <span class="fa arrow"></span></a>
+
+                 <li class="active">
+                    <a href="index.html"><i class="fa fa-gear"></i> <span class="nav-label">题库</span> <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li class="active"><a class="menuItem" href="#">专业</a></li>
                         <li class="active"><a class="menuItem" href="#">科目</a></li>
                         <li class="active"><a class="menuItem" href="#">章节</a></li>
-                        
                         <li class="active"><a class="menuItem" href="#">手动添加试题</a></li>
                         <li class="active"><a class="menuItem" href="#">批量添加试题</a></li>
                     </ul>
                 </li>
+
                 
                 <li class="active">
                     <a href="index.html"><i class="fa fa-gear"></i> <span class="nav-label">试卷管理</span> <span class="fa arrow"></span></a>
@@ -141,7 +148,7 @@
                     <li class="dropdown user-menu">
 						<a href="javascript:" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
 							<img th:src="@{/img/profile.jpg}" class="user-image">
-							<span class="hidden-xs">[[${member.memberAccount}]]</span>
+							<span class="hidden-xs">[[${account.memberAccount}]]</span>
 						</a>
 						<ul class="dropdown-menu">
 							<li class="mt5">
@@ -149,7 +156,7 @@
 								<i class="fa fa-user"></i> 个人中心</a>
 							</li>
 							<li>
-								<input name="memberAccount"  type="hidden"  th:value="${member.memberAccount}" />
+								<input name="memberAccount"  type="hidden"  th:value="${account.memberAccount}" />
 								<a onclick="editPwd()" class="menuItem">
 								<i class="fa fa-key"></i> 修改密码</a>
 							</li>

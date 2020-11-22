@@ -1,5 +1,6 @@
 package com.babao.system.service.impl;
 
+import com.babao.system.domain.pojo.DictData;
 import com.babao.system.domain.pojo.Question;
 import com.babao.system.mapper.QuestionMapper;
 import com.babao.system.service.BaseService;
@@ -7,6 +8,8 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -60,5 +63,14 @@ public class QuestionService implements BaseService<Question> {
     @Override
     public boolean del(Integer id) {
         return questionMapper.deleteById(id)>0?true:false;
+    }
+
+
+    public List<DictData> selectCourses() {
+        DictData d1 = new DictData();
+        d1.setDictLabel("编程");
+        DictData d2 = new DictData();
+        d2.setDictLabel("英语");
+        return Arrays.asList(d1,d2);
     }
 }
