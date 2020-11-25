@@ -1,8 +1,8 @@
 package com.babao.freamewoke.shiro.authc.credential;
 
-import com.babao.common.enums.StatusEnum;
 import com.babao.freamewoke.redis.RedisService;
 import com.babao.freamewoke.shiro.password.PasswordService;
+import com.babao.system.domain.enums.StatusEnum;
 import com.babao.system.service.impl.AccountService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.*;

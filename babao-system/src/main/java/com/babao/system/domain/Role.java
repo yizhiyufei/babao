@@ -1,6 +1,6 @@
 package com.babao.system.domain;
 
-import com.babao.common.enums.StatusEnum;
+import com.babao.system.domain.enums.StatusEnum;
 
 /**
  * 角色信息表

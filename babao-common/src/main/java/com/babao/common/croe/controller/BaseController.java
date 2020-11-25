@@ -7,9 +7,11 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
-
 import com.babao.common.croe.domain.AjaxResult;
 import com.babao.common.croe.domain.AjaxResult.Type;
 import com.babao.common.croe.page.PageDomain;
@@ -19,8 +21,6 @@ import com.babao.common.utils.DateUtils;
 import com.babao.common.utils.ServletUtils;
 import com.babao.common.utils.StringUtils;
 import com.babao.common.utils.sql.SqlUtil;
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 /**
  * 基础控制器类
  * @author yizhiyufei

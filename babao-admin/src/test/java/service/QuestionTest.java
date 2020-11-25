@@ -27,18 +27,18 @@ public class QuestionTest {
     @Test
     public void insert(){
 //        Question q = new Question();
-        Question q = Question.builder()
-                .quName("JVM核心技术")
-                .quLevel(1)
-                .quType(QuestionEnum.SINGLE)
-                .courseId(2)
-                .build();
-
-        q.setCreateBy(1);
-        q.setUpdateBy(1);
-        boolean row = questionService.add(q);
-        System.out.println("答案是:"+q.getAnswer().toString());
-        Assert.assertTrue(row);
+//        Question q = Question.builder()
+//                .quName("JVM核心技术")
+//                .quLevel(1)
+//                .quType(QuestionEnum.SINGLE)
+//                .courseId(2)
+//                .build();
+//
+//        q.setCreateBy(1);
+//        q.setUpdateBy(1);
+//        boolean row = questionService.add(q);
+//        System.out.println("答案是:"+q.getAnswer().toString());
+//        Assert.assertTrue(row);
     }
 
     @Test

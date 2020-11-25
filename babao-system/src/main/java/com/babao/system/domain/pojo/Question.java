@@ -7,6 +7,8 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * 试题信息表
@@ -14,28 +16,24 @@ import lombok.Data;
  *
  */
 @Data
-@Builder
 public class Question extends BaseEntity {
 	//主键
 	@TableId(type = IdType.AUTO)
 	private Integer id;
-	//编号
-	private String quNumber;
-	//题型
-	private QuestionEnum quType;
 	//题型名
 	private String quName;
+	//编号
+	private String quNumber;
 	//试题难度
 	private Integer quLevel;
+	//题型
+	private QuestionEnum quType;
 	//所属科目
 	private Integer courseId;
 	//答案
 	@TableField(exist = false)
 	private Answer answer;
 
-	
-
-	
-	
-	
+	public Question() {
+	}
 }

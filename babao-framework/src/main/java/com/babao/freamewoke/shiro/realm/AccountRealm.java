@@ -1,8 +1,8 @@
 package com.babao.freamewoke.shiro.realm;
 
+import com.babao.common.utils.StringUtils;
 import com.babao.system.domain.pojo.Account;
 import com.babao.system.service.impl.AccountService;
-import com.github.pagehelper.util.StringUtil;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
@@ -33,7 +33,7 @@ public class AccountRealm extends AuthorizingRealm {
         String account = upToken.getUsername();
         String password =  new String(upToken.getPassword());
      
-        if (StringUtil.isEmpty(account) || StringUtil.isEmpty(password)) {
+        if (StringUtils.isEmpty(account) || StringUtils.isEmpty(password)) {
 			throw new UnknownAccountException("The username password is empty");
 		} 
 

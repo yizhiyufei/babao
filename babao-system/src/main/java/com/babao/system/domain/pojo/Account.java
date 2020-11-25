@@ -1,6 +1,6 @@
 package com.babao.system.domain.pojo;
 
-import com.babao.common.enums.StatusEnum;
+import com.babao.system.domain.enums.StatusEnum;
 import com.babao.system.domain.BaseEntity;
 
 /**

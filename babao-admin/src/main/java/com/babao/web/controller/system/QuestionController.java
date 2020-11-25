@@ -1,12 +1,17 @@
 package com.babao.web.controller.system;
 
+import com.babao.common.croe.controller.BaseController;
+import com.babao.common.croe.page.TableDataInfo;
+import com.babao.system.domain.pojo.Account;
 import com.babao.system.domain.pojo.DictData;
+import com.babao.system.domain.pojo.Question;
 import com.babao.system.service.impl.QuestionService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -21,7 +26,7 @@ import java.util.List;
 @Controller
 @Slf4j
 @RequestMapping("/question")
-public class QuestionController {
+public class QuestionController extends BaseController {
     private final String prefix = "system/question";
     @Autowired
     private QuestionService questionService;
@@ -37,5 +42,13 @@ public class QuestionController {
     public List<DictData> type() {
         List<DictData> courses = questionService.selectCourses();
         return courses;
+    }
+
+    @PostMapping("/list")
+    @ResponseBody
+    public TableDataInfo list() {
+        startPage();
+        List<Question> list = questionService.getAll();
+        return getDataTable(list);
     }
 }

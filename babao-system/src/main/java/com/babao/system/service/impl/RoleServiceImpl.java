@@ -1,9 +1,9 @@
 package com.babao.system.service.impl;
 
-import com.babao.common.enums.StatusEnum;
 import com.babao.common.utils.StringUtils;
 import com.babao.system.domain.Role;
 import com.babao.system.domain.Ztree;
+import com.babao.system.domain.enums.StatusEnum;
 import com.babao.system.mapper.RoleMapper;
 import com.babao.system.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;

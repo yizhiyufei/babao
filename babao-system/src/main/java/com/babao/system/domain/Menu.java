@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.babao.common.enums.MenuType;
-import com.babao.common.enums.StatusEnum;
+import com.babao.system.domain.enums.StatusEnum;
 
 public class Menu extends BaseEntity {
     

@@ -63,6 +63,12 @@
 				</form>
 			</div> 
 	        <div class="btn-group-sm" id="toolbar" role="group">
+				<a class="btn btn-success" onclick="$.operate.removeAll()">
+					<i class="fa fa-plus"></i> 新增试题
+				</a>
+				<a class="btn btn-primary" onclick="$.operate.edit()">
+					<i class="fa fa-edit"></i> 修改试题
+				</a>
 	            <a class="btn btn-danger btn-del disabled" onclick="$.operate.removeAll()">
 	                <i class="fa fa-remove"></i>批量删除
 	            </a>
@@ -80,7 +86,7 @@
 	<th:block th:include="include :: layout-latest-js" />
 	<th:block th:include="include :: ztree-js" />
 	<script th:inline="javascript">
-		var prefix = ctx + "system/member";
+		var prefix = ctx + "question";
 		$(function() {
 		    var panehHidden = false;
 		    if ($(this).width() < 769) {
