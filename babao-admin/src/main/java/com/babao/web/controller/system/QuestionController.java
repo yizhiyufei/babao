@@ -2,7 +2,6 @@ package com.babao.web.controller.system;
 
 import com.babao.common.croe.controller.BaseController;
 import com.babao.common.croe.page.TableDataInfo;
-import com.babao.system.domain.pojo.Account;
 import com.babao.system.domain.pojo.DictData;
 import com.babao.system.domain.pojo.Question;
 import com.babao.system.service.impl.QuestionService;
@@ -31,6 +30,11 @@ public class QuestionController extends BaseController {
     @Autowired
     private QuestionService questionService;
 
+    /**
+     * 试题页面
+     * @param map
+     * @return
+     */
     @GetMapping("/index")
     public String index(ModelMap map) {
 
@@ -50,5 +54,14 @@ public class QuestionController extends BaseController {
         startPage();
         List<Question> list = questionService.getAll();
         return getDataTable(list);
+    }
+
+    /**
+     * 编辑试题
+     * @return
+     */
+    @GetMapping("/add")
+    public String add() {
+        return prefix + "/add";
     }
 }
