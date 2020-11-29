@@ -65,6 +65,12 @@ public class QuestionService implements BaseService<Question> {
         return questionMapper.deleteById(id)>0?true:false;
     }
 
+    @Override
+    public void batchAdd(List<Question> list) {
+//        questionMapper.
+//        return 0;
+    }
+
 
     public List<DictData> selectCourses() {
         DictData d1 = new DictData();

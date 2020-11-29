@@ -2,7 +2,6 @@ package com.babao.system.domain.pojo;
 
 import lombok.Data;
 
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -16,15 +15,7 @@ public class Answer{
     //选择答案
     private Set<String> select;
     //正确答案
-    private List<String> correct;
-
-    public Answer(Set<String> select) {
-        this.select = select;
-    }
-
-    public Answer(List<String> correct) {
-        this.correct = correct;
-    }
+    private String correct;
 
     public Answer() {
     }

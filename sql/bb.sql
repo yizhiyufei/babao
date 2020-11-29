@@ -33,7 +33,7 @@ CREATE TABLE `account` (
 
 /*Data for the table `account` */
 
-insert  into `account`(`member_id`,`member_account`,`member_name`,`password`,`salt`,`member_status`) values 
+insert  into `account`(`member_id`,`member_account`,`member_name`,`password`,`salt`,`member_status`) values
 (1,'yufei','余飞','38f291b54f4776a1170d3af6df37ddd0','bb6f79a742a54425949d89a73daff280',0);
 
 /*Table structure for table `course` */
@@ -138,6 +138,7 @@ CREATE TABLE `question` (
   `qu_number` varchar(17) NOT NULL DEFAULT '' COMMENT '题目编号',
   `qu_level` int(11) DEFAULT NULL COMMENT '题目难度等级',
   `qu_type` tinyint(4) NOT NULL COMMENT '题型类型',
+  `score` double NOT NULL DEFAULT '0' COMMENT '分值',
   `course_id` int(11) NOT NULL COMMENT '科目ID',
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间',
@@ -150,8 +151,8 @@ CREATE TABLE `question` (
 
 /*Data for the table `question` */
 
-insert  into `question`(`id`,`qu_name`,`qu_number`,`qu_level`,`qu_type`,`course_id`,`create_time`,`update_time`,`create_by`,`update_by`,`remark`,`deleted`) values 
-(1,'JVM核心技术','1605706547162-1-2',1,1,2,'2020-11-18 21:35:47','2020-11-18 21:35:47',1,1,'',0);
+insert  into `question`(`id`,`qu_name`,`qu_number`,`qu_level`,`qu_type`,`score`,`course_id`,`create_time`,`update_time`,`create_by`,`update_by`,`remark`,`deleted`) values
+(1,'JVM核心技术','1605706547162-1-2',1,1,0,2,'2020-11-18 21:35:47','2020-11-18 21:35:47',1,1,'',0);
 
 /*Table structure for table `role` */
 

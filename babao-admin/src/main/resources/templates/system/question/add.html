@@ -24,9 +24,18 @@
 	                </select>
 				</div>
 
+				<label class="col-sm-2 control-label">等级：</label>
+				<div class="col-sm-10">
+					<select name="quLevel" class="form-control m-b">
+						<option text="初级" value="FIRST_LEVEL">初级</option>
+						<option text="中级" value="MIDDLE_LEVEL">中级</option>
+						<option text="高级" value="HIGH_LEVEL">高级</option>
+					</select>
+				</div>
+
 				<label class="col-sm-2 control-label">分值：</label>
 				<div class="col-sm-10">
-					<select name="quType" class="form-control m-b">
+					<select name="score" class="form-control m-b">
 						<option text="一题2分" value="2">一题2分</option>
 						<option text="一题3分" value="3">一题3分</option>
 						<option text="一题5分" value="5">一题5分</option>
@@ -38,7 +47,7 @@
 			<div class="form-group">	
 				<label class="col-sm-2 control-label">试题内容：</label>
 				<div class="col-sm-10">
-				    <input id="noticeContent" name="noticeContent" type="hidden">
+				    <input id="noticeContent" name="content" type="hidden">
 				    <div class="summernote"></div>
 				</div>
 			</div>
@@ -58,10 +67,10 @@
     <th:block th:include="include :: footer" />
     <th:block th:include="include :: summernote-js" />
     <script type="text/javascript">
-        var prefix = ctx + "system/notice";
+        var prefix = ctx + "question";
 
 	    $('.summernote').summernote({
-	    	placeholder: '请输入公告内容',
+	    	placeholder: '请输入试题内容',
 			height : 192,
 			lang : 'zh-CN',
 			callbacks: {

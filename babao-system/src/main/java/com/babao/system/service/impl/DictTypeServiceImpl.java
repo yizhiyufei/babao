@@ -38,6 +38,11 @@ public class DictTypeServiceImpl implements BaseService<DictType> {
         return false;
     }
 
+    @Override
+    public void batchAdd(List<DictType> list) {
+
+    }
+
     /**
      * 项目启动时，初始化字典到缓存
      */

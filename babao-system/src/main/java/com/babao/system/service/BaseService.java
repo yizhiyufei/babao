@@ -17,4 +17,6 @@ public interface BaseService<T extends BaseEntity> {
     public List<T> getAll();
 
     public boolean del(Integer id);
+
+    public void batchAdd(List<T> list);
 }

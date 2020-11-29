@@ -33,6 +33,11 @@ public class DictDataServiceImpl implements BaseService<DictData> {
         return false;
     }
 
+    @Override
+    public void batchAdd(List<DictData> list) {
+
+    }
+
     /**
      * 根据条件分页查询字典数据
      * 

@@ -1,6 +1,5 @@
 package com.babao.freamewoke.redis;
 
-import com.babao.system.domain.pojo.Answer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.SetOperations;
@@ -29,18 +28,18 @@ public class RedisService {
 	}
 
 	/**
-	 * 保存答案
-	 * 正确答案保存在String
-	 * 选择项保存在Set
+	 * 保存字符串
 	 * @param key
-	 * @param answer
+	 * @param value
 	 */
-	public void insertAnswer(String key, Answer answer){
-		for (String str : answer.getCorrect()){
-			valueOperations.append(key,str+",");
-		}
-		for (String str : answer.getSelect()){
-			setOperations.add(key,str);
-		}
+	public void saveStr(String key, String value){
+		valueOperations.set(key,value);
+	}
+
+	/**
+	 * 保存无序集合
+	 */
+	public void saveSet(String key, String value) {
+		setOperations.add(key,value);
 	}
 }

@@ -84,4 +84,9 @@ public class AccountService implements BaseService<Account> {
 	public boolean del(Integer id) {
 		return false;
 	}
+
+	@Override
+	public void batchAdd(List<Account> list) {
+
+	}
 }
