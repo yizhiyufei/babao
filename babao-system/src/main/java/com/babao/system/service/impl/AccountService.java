@@ -1,8 +1,8 @@
 package com.babao.system.service.impl;
 
 import com.babao.common.croe.text.Convert;
-import com.babao.system.domain.pojo.Account;
-import com.babao.system.mapper.AccountMapper;
+import com.babao.freamewoke.shiro.accout.pojo.Account;
+import com.babao.freamewoke.shiro.accout.mapper.AccountMapper;
 import com.babao.system.service.BaseService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Slf4j
 @Service
-public class AccountService implements BaseService<Account> {
+public class AccountService {
 	@Autowired
 	private AccountMapper AccountMapper;
 
@@ -68,25 +68,5 @@ public class AccountService implements BaseService<Account> {
 			log.info("删除成功");
 		}
 		return row;
-	}
-
-	@Override
-	public boolean add(Account account) {
-		return false;
-	}
-
-	@Override
-	public List<Account> getAll() {
-		return null;
-	}
-
-	@Override
-	public boolean del(Integer id) {
-		return false;
-	}
-
-	@Override
-	public void batchAdd(List<Account> list) {
-
 	}
 }

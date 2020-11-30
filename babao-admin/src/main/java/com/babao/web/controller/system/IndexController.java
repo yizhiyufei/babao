@@ -1,8 +1,8 @@
 package com.babao.web.controller.system;
 
 import com.babao.common.config.Global;
-import com.babao.system.domain.Menu;
-import com.babao.system.domain.pojo.Account;
+import com.babao.system.domain.pojo.Menu;
+import com.babao.freamewoke.shiro.accout.pojo.Account;
 import com.babao.system.service.MenuService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;

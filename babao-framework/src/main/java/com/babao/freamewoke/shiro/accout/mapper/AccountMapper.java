@@ -1,6 +1,6 @@
-package com.babao.system.mapper;
+package com.babao.freamewoke.shiro.accout.mapper;
 
-import com.babao.system.domain.pojo.Account;
+import com.babao.freamewoke.shiro.accout.pojo.Account;
 import org.apache.ibatis.annotations.Insert;
 import java.util.List;
 
@@ -15,13 +15,13 @@ public interface AccountMapper {
 
 	@Insert({"INSERT INTO member(member_account,member_name,PASSWORD,salt) "
 			+ "VALUE(#{memberAccount},#{memberName},#{password},#{salt})"})
-	public int insertAccount(Account member);
+	public int insertAccount(Account account);
 
-	public int updateAccount(Account member);
+	public int updateAccount(Account account);
 
 	public Account selectAccountById(Integer memberId);
 
-	public List<Account> selectAccountList(Account member);
+	public List<Account> selectAccountList(Account account);
 
 	public int deleteAccountByIds(Integer[] memberIds);
 }

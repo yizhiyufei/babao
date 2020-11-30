@@ -105,6 +105,7 @@ public class QuestionController extends BaseController {
                 redisService.saveStr(number,str);
                 continue;
             }
+            // TODO 正确答案没有指定保存
             //存在多个选择答案的题型rdis存入集合
             redisService.saveSet(number,str);
         }

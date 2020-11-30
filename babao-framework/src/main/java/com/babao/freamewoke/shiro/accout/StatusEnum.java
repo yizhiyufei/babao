@@ -1,4 +1,4 @@
-package com.babao.system.domain.enums;
+package com.babao.freamewoke.shiro.accout;
 
 import com.baomidou.mybatisplus.annotation.EnumValue;
 

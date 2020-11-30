@@ -1,6 +1,6 @@
 package com.babao.freamewoke.shiro.web.filter;
 
-import com.babao.system.domain.pojo.Account;
+import com.babao.freamewoke.shiro.accout.pojo.Account;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.cache.Cache;
 import org.apache.shiro.cache.CacheManager;

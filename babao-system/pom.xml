@@ -18,24 +18,18 @@
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>com.baomidou</groupId>
-			<artifactId>mybatis-plus-boot-starter</artifactId>
-			<version>3.3.2</version>
-		</dependency>
-
 		<!-- 通用工具 -->
 		<dependency>
 			<groupId>com.babao</groupId>
 			<artifactId>babao-common</artifactId>
 		</dependency>
 
-		<!--lombok插件 -->
+
 		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<scope>provided</scope>
+			<groupId>com.babao</groupId>
+			<artifactId>babao-framework</artifactId>
 		</dependency>
+
 
 	</dependencies>
 </project>

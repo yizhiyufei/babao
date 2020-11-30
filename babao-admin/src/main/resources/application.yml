@@ -57,7 +57,7 @@ spring:
 # MyBatis
 #mybatis:
 #    # 搜索指定包别名
-#    typeAliasesPackage: com.babao.system.domain
+#    typeAliasesPackage: com.babao.system.accout
 #    type-handlers-package: com.babao.mybatis.handler
 #    # 配置mapper的扫描，找到所有的mapper.xml映射文件
 #    mapperLocations: classpath:mapper/*Mapper.xml
@@ -68,9 +68,9 @@ spring:
 #      map-underscore-to-camel-case: true
 mybatis-plus:
   mapper-locations: classpath:mapper/*Mapper.xml
-  type-aliases-package: com.babao.system.domain
+  type-aliases-package: com.babao.system.accout.pojo,com.babao.freamewoke.shiro.accout.pojo
   type-handlers-package: com.babao.mybatis.handler
-  typeEnumsPackage: com.babao.system.domain.enums
+  typeEnumsPackage: com.babao.system.accout.enums
   global-config:
     db-config:
       id-type: auto

@@ -71,14 +71,16 @@
 		</dependency>
 		
 		<!-- servlet包 -->
-                <dependency>
+	   <dependency>
 		    <groupId>javax.servlet</groupId>
 		    <artifactId>javax.servlet-api</artifactId>
 		</dependency>
 
+	  <!--lombok插件 -->
 	  <dependency>
-		  <groupId>org.slf4j</groupId>
-		  <artifactId>slf4j-api</artifactId>
+		  <groupId>org.projectlombok</groupId>
+		  <artifactId>lombok</artifactId>
+		  <scope>provided</scope>
 	  </dependency>
 
 

@@ -1,8 +1,8 @@
 package com.babao.freamewoke.shiro.service;
 
+import com.babao.freamewoke.shiro.accout.mapper.AccountMapper;
+import com.babao.freamewoke.shiro.accout.pojo.Account;
 import com.babao.freamewoke.shiro.password.PasswordService;
-import com.babao.system.domain.pojo.Account;
-import com.babao.system.service.impl.AccountService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 public class LoginService {
 
 	@Autowired
-	private AccountService memberService;
+	private AccountMapper accountMapper;
 	@Autowired
 	PasswordService passwordService;
 
@@ -38,6 +38,6 @@ public class LoginService {
 		log.info("enter password" + password);
 		String encryptPassword = passwordService.encryptPassword(account, password, salt);
 		Account member = new Account(1, account, membername, encryptPassword, salt);
-		return memberService.addAccount(member);
+		return accountMapper.insertAccount(member);
 	}
 }

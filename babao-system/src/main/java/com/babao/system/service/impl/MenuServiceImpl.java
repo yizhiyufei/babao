@@ -1,6 +1,6 @@
 package com.babao.system.service.impl;
 
-import com.babao.system.domain.Menu;
+import com.babao.system.domain.pojo.Menu;
 import com.babao.system.mapper.MenuMapper;
 import com.babao.system.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;

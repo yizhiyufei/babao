@@ -4,7 +4,7 @@ import com.babao.common.croe.controller.BaseController;
 import com.babao.common.croe.domain.AjaxResult;
 import com.babao.common.croe.page.TableDataInfo;
 import com.babao.freamewoke.shiro.password.PasswordService;
-import com.babao.system.domain.pojo.Account;
+import com.babao.freamewoke.shiro.accout.pojo.Account;
 import com.babao.system.service.impl.AccountService;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;

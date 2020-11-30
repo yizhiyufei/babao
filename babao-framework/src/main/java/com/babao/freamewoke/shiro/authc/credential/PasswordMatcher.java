@@ -1,9 +1,10 @@
 package com.babao.freamewoke.shiro.authc.credential;
 
+import com.babao.freamewoke.shiro.accout.StatusEnum;
+import com.babao.freamewoke.shiro.accout.pojo.Account;
 import com.babao.freamewoke.redis.RedisService;
+import com.babao.freamewoke.shiro.accout.mapper.AccountMapper;
 import com.babao.freamewoke.shiro.password.PasswordService;
-import com.babao.system.domain.enums.StatusEnum;
-import com.babao.system.service.impl.AccountService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
@@ -12,7 +13,6 @@ import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.codec.Base64;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.babao.system.domain.pojo.Account;
 import javax.annotation.PostConstruct;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -30,7 +30,7 @@ public class PasswordMatcher extends HashedCredentialsMatcher {
 	@Autowired
 	PasswordService passwordService;
 	@Autowired
-	private AccountService memberService;
+	private AccountMapper accountMapper;
 	@Autowired
 	private RedisService redisService;
 
@@ -63,8 +63,8 @@ public class PasswordMatcher extends HashedCredentialsMatcher {
 		 */
 		if(matches) {
 			if (retryNull) {			
-				member.setMemberStatus(StatusEnum.OK);
-	        	memberService.changeStatus(member);
+				member.setStatusEnum(StatusEnum.OK);
+	        	accountMapper.updateAccount(member);
 			}else {
 				throw new LockedAccountException("Account lockout");
 			}
@@ -75,7 +75,7 @@ public class PasswordMatcher extends HashedCredentialsMatcher {
 			}
 			if (retryCount.incrementAndGet() > 5 && member.getStatusEnum().getCode() != 1) {
 				member.setMemberStatus(StatusEnum.LOCKED);
-	        	memberService.changeStatus(member);	        	
+				accountMapper.updateAccount(member);
 			}if(retryCount.get() <= 5 ) {
 				log.error("重试密码次数:"+retryCount.toString());
 				throw new ExcessiveAttemptsException("More password retries");

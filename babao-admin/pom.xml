@@ -34,19 +34,18 @@
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger-ui</artifactId>
 		</dependency>
-		
-		<!--lombok插件 -->
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<scope>provided</scope>
-		</dependency>
 
 		<!-- 核心模块 -->
         <dependency>
             <groupId>com.babao</groupId>
             <artifactId>babao-framework</artifactId>
         </dependency>
+
+       <!-- 系统模块 -->
+       <dependency>
+           <groupId>com.babao</groupId>
+           <artifactId>babao-system</artifactId>
+       </dependency>
 
        <dependency>
            <groupId>org.springframework.boot</groupId>
@@ -72,6 +71,7 @@
                     </execution>
                 </executions>
             </plugin>
+            <!--
             <plugin>   
                 <groupId>org.apache.maven.plugins</groupId>   
                 <artifactId>maven-war-plugin</artifactId>   
@@ -80,7 +80,9 @@
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                     <warName>${artifactId}</warName>
                 </configuration>   
-		   </plugin>   
+		   </plugin>
+		   -->
+
         </plugins>
         <finalName>${artifactId}</finalName>
     </build>

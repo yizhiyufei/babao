@@ -1,6 +1,6 @@
 package com.babao.system.mapper;
 
-import com.babao.system.domain.Menu;
+import com.babao.system.domain.pojo.Menu;
 
 import java.util.List;
 

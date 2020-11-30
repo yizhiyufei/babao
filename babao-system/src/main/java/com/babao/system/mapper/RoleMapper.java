@@ -1,6 +1,6 @@
 package com.babao.system.mapper;
 
-import com.babao.system.domain.Role;
+import com.babao.system.domain.pojo.Role;
 
 import java.util.List;
 

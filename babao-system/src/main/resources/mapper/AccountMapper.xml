@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.babao.system.mapper.AccountMapper">
+<mapper namespace="com.babao.freamewoke.shiro.accout.mapper.AccountMapper">
 	<sql id="selectMemberVo">
 		SELECT DISTINCT m.member_id,m.member_account,m.member_name,m.member_status FROM account m
 		JOIN member_role mr ON m.member_id = mr.member_id

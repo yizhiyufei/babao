@@ -11,7 +11,7 @@
 //import org.apache.ibatis.type.MappedTypes;
 //import org.apache.ibatis.type.TypeHandler;
 //
-//import com.babao.system.domain.enums.StatusEnum;
+//import com.babao.system.accout.enums.StatusEnum;
 ///**
 // * 状态常量
 // * 枚举类型处理器

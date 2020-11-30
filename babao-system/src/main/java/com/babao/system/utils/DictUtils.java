@@ -1,7 +1,7 @@
 //package com.babao.system.utils;
 //
 //import com.babao.common.utils.StringUtils;
-//import com.babao.system.domain.pojo.DictData;
+//import com.babao.system.accout.pojo.DictData;
 //
 //import java.util.List;
 //

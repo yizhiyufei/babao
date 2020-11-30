@@ -32,7 +32,6 @@
     		<groupId>com.alibaba</groupId>
     		<artifactId>fastjson</artifactId>
 		</dependency>
-		
 
 		<!--验证码 -->
 		<dependency>
@@ -81,18 +80,24 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
-		
-		<!-- 系统模块 -->
+
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus-boot-starter</artifactId>
+		</dependency>
+
+		<!-- 系统模块
 		<dependency>
 			<groupId>com.babao</groupId>
 			<artifactId>babao-system</artifactId>
-<!--			<exclusions>-->
-<!--				<exclusion>-->
-<!--					<groupId>mysql</groupId>-->
-<!--					<artifactId>mysql-connector-java</artifactId>-->
-<!--				</exclusion>-->
-<!--			</exclusions>-->
+			<exclusions>
+				<exclusion>
+					<groupId>mysql</groupId>
+					<artifactId>mysql-connector-java</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
+		-->
 
 		<!-- 获取系统信息 -->
 		<dependency>
@@ -109,22 +114,10 @@
 			<groupId>net.java.dev.jna</groupId>
 			<artifactId>jna-platform</artifactId>
 		</dependency>
-
-		<!--lombok插件 -->
 		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<scope>provided</scope>
+			<groupId>com.babao</groupId>
+			<artifactId>babao-common</artifactId>
 		</dependency>
 
-		<!--
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-extension</artifactId>
-            <version>RELEASE</version>
-            <scope>compile</scope>
-        </dependency>
-		-->
-
-    </dependencies>
+	</dependencies>
 </project>
