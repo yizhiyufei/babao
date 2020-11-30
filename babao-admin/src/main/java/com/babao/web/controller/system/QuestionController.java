@@ -86,16 +86,19 @@ public class QuestionController extends BaseController {
         log.info(dto.toString());
         List<String> texts = RichTextUtil.text(dto.getContent(),"p");
         List<Question> quList = new ArrayList<>();
-        Question qu = new Question();
+
+        Question qu = new Question(dto.getQuLevel(),dto.getQuType(),dto.getScore(),1);
+//        qu.setRemark("测试");
+//        qu.setDeleted(0);
         // 保存题号
         String number = null;
         BeanUtils.copyProperties(dto,qu);
         for(String str : texts){
             //判断是否题目名
             if (str.contains("Q:")){
-                qu.setQuNumber(str);
+                qu.setQuName(str);
                 //生成题号
-                number = IdUtils.fastUUID();
+                number = IdUtils.fastSimpleUUID();
                 qu.setQuNumber(number);
                 quList.add(qu);
                 continue;

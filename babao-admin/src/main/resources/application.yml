@@ -68,9 +68,9 @@ spring:
 #      map-underscore-to-camel-case: true
 mybatis-plus:
   mapper-locations: classpath:mapper/*Mapper.xml
-  type-aliases-package: com.babao.system.accout.pojo,com.babao.freamewoke.shiro.accout.pojo
+  type-aliases-package: com.babao.system.domain.pojo,com.babao.freamewoke.shiro.accout.pojo
   type-handlers-package: com.babao.mybatis.handler
-  typeEnumsPackage: com.babao.system.accout.enums
+  typeEnumsPackage: com.babao.system.domain.enums
   global-config:
     db-config:
       id-type: auto

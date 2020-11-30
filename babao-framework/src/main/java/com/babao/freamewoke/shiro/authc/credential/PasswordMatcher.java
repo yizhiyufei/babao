@@ -1,9 +1,9 @@
 package com.babao.freamewoke.shiro.authc.credential;
 
-import com.babao.freamewoke.shiro.accout.StatusEnum;
-import com.babao.freamewoke.shiro.accout.pojo.Account;
 import com.babao.freamewoke.redis.RedisService;
+import com.babao.freamewoke.shiro.accout.StatusEnum;
 import com.babao.freamewoke.shiro.accout.mapper.AccountMapper;
+import com.babao.freamewoke.shiro.accout.pojo.Account;
 import com.babao.freamewoke.shiro.password.PasswordService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.*;
@@ -13,6 +13,7 @@ import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.codec.Base64;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.annotation.PostConstruct;
 import java.util.concurrent.atomic.AtomicInteger;
 

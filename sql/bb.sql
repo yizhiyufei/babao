@@ -135,24 +135,29 @@ DROP TABLE IF EXISTS `question`;
 CREATE TABLE `question` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `qu_name` varchar(32) NOT NULL DEFAULT '' COMMENT '题目名',
-  `qu_number` varchar(17) NOT NULL DEFAULT '' COMMENT '题目编号',
-  `qu_level` int(11) DEFAULT NULL COMMENT '题目难度等级',
-  `qu_type` tinyint(4) NOT NULL COMMENT '题型类型',
+  `qu_number` varchar(32) NOT NULL DEFAULT '' COMMENT '题目编号',
+  `qu_level` tinyint(4) NOT NULL DEFAULT '1' COMMENT '题目难度等级',
+  `qu_type` tinyint(4) NOT NULL DEFAULT '1' COMMENT '题型类型',
   `score` double NOT NULL DEFAULT '0' COMMENT '分值',
   `course_id` int(11) NOT NULL COMMENT '科目ID',
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `update_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间',
-  `create_by` int(11) NOT NULL COMMENT '创建者ID',
-  `update_by` int(11) NOT NULL COMMENT '修改者ID',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间',
+  `create_by` int(11) NOT NULL DEFAULT '0' COMMENT '创建者ID',
+  `update_by` int(11) NOT NULL DEFAULT '0' COMMENT '修改者ID',
   `remark` varchar(60) NOT NULL DEFAULT '' COMMENT '备注',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT '逻辑删除',
-  PRIMARY KEY (`id`,`create_by`,`update_by`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='题目表';
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='题目表';
 
 /*Data for the table `question` */
 
 insert  into `question`(`id`,`qu_name`,`qu_number`,`qu_level`,`qu_type`,`score`,`course_id`,`create_time`,`update_time`,`create_by`,`update_by`,`remark`,`deleted`) values
-(1,'JVM核心技术','1605706547162-1-2',1,1,0,2,'2020-11-18 21:35:47','2020-11-18 21:35:47',1,1,'',0);
+(1,'JVM核心技术','1605706547162-1-2',1,1,0,2,'2020-11-18 21:35:47','2020-11-18 21:35:47',1,1,'测试',0),
+(2,'Q:脂肪酸的人生的个人同意','8ebb62ea1b0b4d6e8dc99a06784f4f03',1,1,2,1,'2020-11-30 22:32:45','2020-11-18 21:35:47',1,1,'测试',0),
+(3,'Q:脂肪酸的人生的个人同意','8ebb62ea1b0b4d6e8dc99a06784f4f03',1,1,2,1,'2020-11-30 22:32:45','2020-11-18 21:35:47',1,1,'测试',0),
+(4,'Q:脂肪酸的人生的个人同意','8ebb62ea1b0b4d6e8dc99a06784f4f03',1,1,2,1,'2020-11-30 22:32:45','2020-11-18 21:35:47',1,1,'测试',0),
+(5,'测试是否莫仍','1606747077428-1-2',1,1,0,2,'2020-11-30 22:37:58','2020-11-30 22:37:58',1,1,'',0),
+(6,'测试是否莫仍','1606747170212-1-2',1,1,0,2,'2020-11-30 22:39:30','2020-11-30 22:39:30',0,0,'',0);
 
 /*Table structure for table `role` */
 

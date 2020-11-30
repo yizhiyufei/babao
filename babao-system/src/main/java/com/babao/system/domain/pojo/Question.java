@@ -6,14 +6,16 @@ import com.babao.system.domain.enums.QuestionEnum;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * 试题信息表
  * @author yizhiyufei
  *
  */
-@Data
+@Setter
+@Getter
 public class Question extends BaseEntity {
 	//主键
 	@TableId(type = IdType.AUTO)
@@ -35,5 +37,12 @@ public class Question extends BaseEntity {
 	private Answer answer;
 
 	public Question() {
+	}
+
+	public Question(LevelEnum quLevel, QuestionEnum quType, Double score, Integer courseId) {
+		this.quLevel = quLevel;
+		this.quType = quType;
+		this.score = score;
+		this.courseId = courseId;
 	}
 }

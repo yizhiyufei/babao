@@ -5,7 +5,6 @@ import com.babao.system.domain.pojo.Question;
 import com.babao.system.mapper.QuestionMapper;
 import com.babao.system.service.BaseService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.service.IService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -68,7 +67,6 @@ public class QuestionService implements BaseService<Question>{
     public void batchAdd(List<Question> list) {
         Integer row = questionMapper.insertBatchSomeColumn(list);
         log.info("批量插入行数[{}]",row);
-//        return 0;
     }
 
 

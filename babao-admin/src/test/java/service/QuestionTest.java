@@ -1,6 +1,6 @@
 import com.babao.BabaoApplication;
+import com.babao.system.domain.enums.LevelEnum;
 import com.babao.system.domain.enums.QuestionEnum;
-import com.babao.system.domain.pojo.Answer;
 import com.babao.system.domain.pojo.Question;
 import com.babao.system.service.impl.QuestionService;
 import org.junit.Assert;
@@ -26,19 +26,16 @@ public class QuestionTest {
     QuestionService questionService;
     @Test
     public void insert(){
-//        Question q = new Question();
-//        Question q = Question.builder()
-//                .quName("JVM核心技术")
-//                .quLevel(1)
-//                .quType(QuestionEnum.SINGLE)
-//                .courseId(2)
-//                .build();
-//
+        Question q = new Question();
+                q.setQuName("测试是否莫仍");
+                q.setQuLevel(LevelEnum.FIRST_LEVEL);
+                q.setQuType(QuestionEnum.SINGLE);
+                q.setCourseId(2);
+
 //        q.setCreateBy(1);
-//        q.setUpdateBy(1);
-//        boolean row = questionService.add(q);
-//        System.out.println("答案是:"+q.getAnswer().toString());
-//        Assert.assertTrue(row);
+////        q.setUpdateBy(1);
+        boolean row = questionService.add(q);
+        Assert.assertTrue(row);
     }
 
     @Test

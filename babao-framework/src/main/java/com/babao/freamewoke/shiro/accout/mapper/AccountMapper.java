@@ -2,6 +2,8 @@ package com.babao.freamewoke.shiro.accout.mapper;
 
 import com.babao.freamewoke.shiro.accout.pojo.Account;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+
 import java.util.List;
 
 
@@ -10,6 +12,7 @@ import java.util.List;
  * @author yizhiyufei
  *
  */
+@Mapper
 public interface AccountMapper {
 	public Account selectAccountByAccount(String memberAccount);
 

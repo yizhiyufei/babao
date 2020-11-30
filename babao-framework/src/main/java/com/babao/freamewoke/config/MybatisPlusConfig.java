@@ -13,4 +13,5 @@ public class MybatisPlusConfig {
     public EasySqlInjector easySqlInjector() {
         return new EasySqlInjector();
     }
+    //TODO 默认值字段自动填充
 }

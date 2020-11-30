@@ -15,6 +15,6 @@ public class QuestionDto {
 
     private LevelEnum quLevel;//难度
     private QuestionEnum quType;//题型
-    private Integer fraction;//分数
+    private Double score;//分数
     private String content;//富文本内容
 }
