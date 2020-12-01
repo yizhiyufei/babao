@@ -32,11 +32,16 @@ public class Question extends BaseEntity {
 	private Double score;
 	//所属科目
 	private Integer courseId;
-	//答案
+
+	//答题次数
 	@TableField(exist = false)
-	private Answer answer;
+	private Integer answers;
+	//正确率
+	@TableField(exist = false)
+	private String trueRate;
 
 	public Question() {
+		super();
 	}
 
 	public Question(LevelEnum quLevel, QuestionEnum quType, Double score, Integer courseId) {

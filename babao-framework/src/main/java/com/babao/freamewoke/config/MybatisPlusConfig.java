@@ -1,6 +1,7 @@
 package com.babao.freamewoke.config;
 
 import com.babao.freamewoke.mybatisplus.injector.EasySqlInjector;
+import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -13,5 +14,5 @@ public class MybatisPlusConfig {
     public EasySqlInjector easySqlInjector() {
         return new EasySqlInjector();
     }
-    //TODO 默认值字段自动填充
+
 }

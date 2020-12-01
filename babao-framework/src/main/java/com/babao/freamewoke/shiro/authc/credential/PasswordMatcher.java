@@ -83,8 +83,7 @@ public class PasswordMatcher extends HashedCredentialsMatcher {
 			}
 			matches = false;		
 		}
-		//TODO 统计登录人数，redis未安装
-//		redisService.countLogin();
+		redisService.countLogin();
 		return matches;		
 	}
 }

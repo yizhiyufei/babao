@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html  lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<th:block th:include="include :: header('成员管理')"/>
+	<th:block th:include="include :: header('试卷管理')"/>
 	<th:block th:include="include :: layout-latest-css" />
 	<th:block th:include="include :: ztree-css" />
 </head>
@@ -63,8 +63,8 @@
 				</form>
 			</div> 
 	        <div class="btn-group-sm" id="toolbar" role="group">
-				<a class="btn btn-success" onclick="$.operate.addFull()">
-					<i class="fa fa-plus"></i> 编辑试题
+				<a class="btn btn-success" onclick="$.operate.addTab()">
+					<i class="fa fa-plus"></i> 生成试卷
 				</a>
 				<a class="btn btn-primary" onclick="$.operate.edit()">
 					<i class="fa fa-edit"></i> 修改试题

@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @ClassName : QuestionController
@@ -63,6 +64,10 @@ public class QuestionController extends BaseController {
     public TableDataInfo list() {
         startPage();
         List<Question> list = questionService.getAll();
+        for (Question q : list){
+            q.setTrueRate("88%");
+            q.setAnswers(90);
+        }
         return getDataTable(list);
     }
 
