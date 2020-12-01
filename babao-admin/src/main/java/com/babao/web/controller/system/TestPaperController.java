@@ -22,4 +22,9 @@ public class TestPaperController extends BaseController {
     public String index(ModelMap map) {
         return prefix + "/index";
     }
+
+    @GetMapping("/add")
+    public String add(ModelMap map) {
+        return prefix + "/add";
+    }
 }

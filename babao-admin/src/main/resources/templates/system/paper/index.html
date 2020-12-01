@@ -63,7 +63,7 @@
 				</form>
 			</div> 
 	        <div class="btn-group-sm" id="toolbar" role="group">
-				<a class="btn btn-success" onclick="$.operate.addTab()">
+				<a class="btn btn-success" onclick="$.operate.add()">
 					<i class="fa fa-plus"></i> 生成试卷
 				</a>
 				<a class="btn btn-primary" onclick="$.operate.edit()">
@@ -86,7 +86,7 @@
 	<th:block th:include="include :: layout-latest-js" />
 	<th:block th:include="include :: ztree-js" />
 	<script th:inline="javascript">
-		var prefix = ctx + "question";
+		var prefix = ctx + "paper";
 		$(function() {
 		    var panehHidden = false;
 		    if ($(this).width() < 769) {
