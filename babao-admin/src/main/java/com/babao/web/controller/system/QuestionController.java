@@ -92,15 +92,13 @@ public class QuestionController extends BaseController {
         List<String> texts = RichTextUtil.text(dto.getContent(),"p");
         List<Question> quList = new ArrayList<>();
 
-        Question qu = new Question(dto.getQuLevel(),dto.getQuType(),dto.getScore(),1);
-//        qu.setRemark("测试");
-//        qu.setDeleted(0);
         // 保存题号
         String number = null;
-        BeanUtils.copyProperties(dto,qu);
         for(String str : texts){
             //判断是否题目名
             if (str.contains("Q:")){
+                Question qu = new Question(dto.getQuLevel(),dto.getQuType(),dto.getScore(),1);
+                BeanUtils.copyProperties(dto,qu);
                 qu.setQuName(str);
                 //生成题号
                 number = IdUtils.fastSimpleUUID();
@@ -108,7 +106,7 @@ public class QuestionController extends BaseController {
                 quList.add(qu);
                 continue;
             }
-            //如果是简单题redis存入字符串
+            //如果是简答题redis存入字符串
             if (dto.getQuType() == QuestionEnum.SHORT){
                 redisService.saveStr(number,str);
                 continue;

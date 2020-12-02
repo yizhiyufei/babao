@@ -1,6 +1,5 @@
 package com.babao.system.service;
 
-import com.babao.system.domain.TestPaper;
 import com.babao.system.mapper.QuestionMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 

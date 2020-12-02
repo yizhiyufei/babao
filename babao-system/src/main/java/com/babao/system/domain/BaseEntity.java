@@ -1,8 +1,6 @@
 package com.babao.system.domain;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableLogic;
+import com.baomidou.mybatisplus.annotation.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
@@ -14,6 +12,10 @@ public abstract class BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
     /** 搜索值 */
 //    private String searchValue;
+
+    //主键
+    @TableId(type = IdType.AUTO)
+    private Integer id;
 
     /** 创建者 */
     @TableField(fill = FieldFill.INSERT)

@@ -1,5 +1,7 @@
 package com.babao.system.service.impl;
 
+import com.babao.system.domain.dto.TestPaperDto;
+import com.babao.system.domain.enums.QuestionEnum;
 import com.babao.system.domain.pojo.DictData;
 import com.babao.system.domain.pojo.Question;
 import com.babao.system.mapper.QuestionMapper;
@@ -9,9 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * @ClassName : QuestionService
@@ -76,5 +76,29 @@ public class QuestionService implements BaseService<Question>{
         DictData d2 = new DictData();
         d2.setDictLabel("英语");
         return Arrays.asList(d1,d2);
+    }
+
+    public Set<Question> createTestPaper(TestPaperDto dto) {
+//        QueryWrapper<Question> ew = new QueryWrapper<>();
+//
+//        if (dto.getSingleNum()>0){
+//            ew.eq("qu_type", QuestionEnum.SINGLE);
+//            ew.orderBy(true,true,"RAND()");
+//            questionMapper.selectList(ew);
+//        }
+        Set<Question> quSet = new HashSet<>();
+        if (dto.getSingleNum()>0){
+            Set<Question> set = questionMapper.randByQeAndLimit(QuestionEnum.SINGLE,dto.getSingleNum());
+            quSet.addAll(set);
+        }
+        if (dto.getMultipleNum()>0){
+            Set<Question> set = questionMapper.randByQeAndLimit(QuestionEnum.MULTIPLE,dto.getMultipleNum());
+            quSet.addAll(set);
+        }
+        if (dto.getShortNum()>0){
+            Set<Question> set = questionMapper.randByQeAndLimit(QuestionEnum.SHORT,dto.getShortNum());
+            quSet.addAll(set);
+        }
+        return quSet;
     }
 }

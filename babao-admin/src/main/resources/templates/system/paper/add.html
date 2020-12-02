@@ -1,85 +1,97 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" >
 <head>
-	<th:block th:include="include :: header('新增字典数据')" />
+	<th:block th:include="include :: header('新增试卷')" />
 </head>
 <body class="white-bg">
 	<div class="wrapper wrapper-content animated fadeInRight ibox-content">
 		<form class="form-horizontal m" id="form-dict-add">
-			<div class="form-group">
-				<label class="col-sm-3 control-label ">字典标签：</label>
-				<div class="col-sm-8">
-					<input class="form-control" type="text" name="dictLabel" id="dictLabel" required>
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-sm-3 control-label ">字典键值：</label>
-				<div class="col-sm-8">
-					<input class="form-control" type="text" name="dictValue" id="dictValue" required>
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-sm-3 control-label">字典类型：</label>
-				<div class="col-sm-8">
-					<input class="form-control" type="text" id="dictType" name="dictType" readonly="true">
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-sm-3 control-label">样式属性：</label>
-				<div class="col-sm-8">
-					<input class="form-control" type="text" id="cssClass" name="cssClass">
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-sm-3 control-label">字典排序：</label>
-				<div class="col-sm-8">
-					<input class="form-control" type="text" name="dictSort" required>
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-sm-3 control-label">回显样式：</label>
-				<div class="col-sm-8">
-					<select name="listClass" class="form-control m-b">
-					    <option value="">---请选择---</option>
-	                    <option value="default">默认</option>
-	                    <option value="primary">主要</option>
-	                    <option value="success">成功</option>
-	                    <option value="info">   信息</option>
-	                    <option value="warning">警告</option>
-	                    <option value="danger"> 危险</option>
-	                </select>
-	                <span class="help-block m-b-none"><i class="fa fa-info-circle"></i> table表格字典列显示样式属性</span>
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-sm-3 control-label">系统默认：</label>
-				<div class="col-sm-8">
-				    <div class="radio-box">
-						<input type="radio"  name="isDefault">
-						<label ></label>
+			<div class="col-md-12">
+				<div class="form-group">
+					<label class="col-sm-3 control-label">纯文本：</label>
+					<div class="col-sm-9">
+						<p class="form-control-static">这里是纯文字信息</p>
 					</div>
 				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-sm-3 control-label">状态：</label>
-				<div class="col-sm-8">
-				    <div class="radio-box">
-						<input type="radio">
-						<label></label>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">单选题：</label>
+					<div class="col-sm-9">
+						<select class="form-control" name="singleNum">
+							<option>---请选择数量---</option>
+							<option>随机</option>
+							<option>50</option>
+							<option>30</option>
+							<option>20</option>
+							<option>10</option>
+							<option>5</option>
+						</select>
 					</div>
 				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-sm-3 control-label">备注：</label>
-				<div class="col-sm-8">
-					<textarea id="remark" name="remark" class="form-control"></textarea>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label">多选题：</label>
+					<div class="col-sm-9">
+						<select class="form-control" name="multipleNum">
+							<option>---请选择数量---</option>
+							<option>随机</option>
+							<option>20</option>
+							<option>15</option>
+							<option>10</option>
+							<option>5</option>
+							<option>0</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label">简答题：</label>
+					<div class="col-sm-9">
+						<select class="form-control" name="shortNum">
+							<option>---请选择数量---</option>
+							<option>随机</option>
+							<option>10</option>
+							<option>7</option>
+							<option>5</option>
+							<option>3</option>
+							<option>0</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label">难度：</label>
+					<div class="col-sm-9">
+						<label class="radio-box">
+							<input type="radio" checked="" value="FIRST_LEVEL" id="optionsRadios1" name="quLevel">初级</label>
+						<label class="radio-box">
+							<input type="radio" value="MIDDLE_LEVEL" id="optionsRadios2" name="quLevel">中级</label>
+						<label class="radio-box">
+							<input type="radio" value="HIGH_LEVEL" id="optionsRadios3" name="quLevel">高级</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">答题时间：</label>
+					<div class="col-sm-9">
+						<label class="radio-box">
+							<input type="radio" checked="" value="45" id="optionsRadios1" name="answerTime">45分钟</label>
+						<label class="radio-box">
+							<input type="radio" value="60" id="optionsRadios2" name="answerTime">1小时</label>
+						<label class="radio-box">
+							<input type="radio" value="90" id="optionsRadios3" name="answerTime">1.5小时</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">备注：</label>
+					<div class="col-sm-9">
+						<input type="text" name="remark" class="form-control" placeholder="请输入文本">
+					</div>
 				</div>
 			</div>
 		</form>
 	</div>
 	<th:block th:include="include :: footer" />
 	<script type="text/javascript">
-		var prefix = ctx + "system/dict/data";
+		var prefix = ctx + "paper";
 	
 		$("#form-dict-add").validate({
 			rules:{

@@ -17,9 +17,7 @@ import lombok.Setter;
 @Setter
 @Getter
 public class Question extends BaseEntity {
-	//主键
-	@TableId(type = IdType.AUTO)
-	private Integer id;
+
 	//题型名
 	private String quName;
 	//题号

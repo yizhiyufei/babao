@@ -42,4 +42,8 @@ public class RedisService {
 	public void saveSet(String key, String value) {
 		setOperations.add(key,value);
 	}
+
+	public String getValue(String key){
+		return (String) valueOperations.get(key);
+	}
 }
