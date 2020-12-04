@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.Set;
 
 @Service
 @Slf4j
@@ -45,5 +47,10 @@ public class RedisService {
 
 	public String getValue(String key){
 		return (String) valueOperations.get(key);
+	}
+
+	public Set<Object> getSet(String key){
+		Set<Object> set = setOperations.members(key);
+		return set;
 	}
 }

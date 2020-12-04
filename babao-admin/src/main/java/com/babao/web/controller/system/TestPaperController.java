@@ -4,8 +4,7 @@ import com.babao.common.croe.controller.BaseController;
 import com.babao.common.croe.domain.AjaxResult;
 import com.babao.freamewoke.redis.RedisService;
 import com.babao.system.domain.dto.TestPaperDto;
-import com.babao.system.domain.pojo.Question;
-import com.babao.system.domain.pojo.TestPaper;
+import com.babao.system.domain.pojo.*;
 import com.babao.system.service.impl.QuestionService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Controller
 @Slf4j
@@ -52,16 +53,35 @@ public class TestPaperController extends BaseController {
     @ResponseBody
     public AjaxResult saveAdd(TestPaperDto dto) {
 //        log.info(dto.toString());
-        //TODO 封装试卷
         TestPaper paper = new TestPaper();
         Set<Question> quSet = questionService.createTestPaper(dto);
         for (Question q: quSet){
             switch (q.getQuType()){
                 case SHORT:
-                    String quShort = redisService.getValue(q.getQuNumber());
+                    /**
+                     * 通过题号从redis找答案
+                     * 将问题，答案封装
+                     */
+                    String answer = redisService.getValue(q.getQuNumber());
+                    ShortAnswer sa = new ShortAnswer(q.getQuName(),q.getScore(),answer);
+                    paper.addShortAnswer(sa);
+                    break;
+                case SINGLE:
+                    Set<Object> singleSet = redisService.getSet(q.getQuNumber());
+                    Set<String> singleOp = singleSet.stream().map(o -> (String) o).collect(Collectors.toSet());
+                    Select select = new Select(q.getQuName(),q.getScore(),2,singleOp);
+                    paper.addSelect(select);
+                    break;
+                case MULTIPLE:
+                    Set<Object> multipleSet = redisService.getSet(q.getQuNumber());
+                    Set<String> multiplOp = multipleSet.stream().map(o -> (String) o).collect(Collectors.toSet());
+                    Integer[] arr = {1,2};
+                    Multiple multiple = new Multiple(q.getQuName(),q.getScore(),arr,multiplOp);
+                    paper.addMultiple(multiple);
+                    break;
             }
         }
-//        log.info(numberSet.toString());
-        return AjaxResult.success(quSet);
+
+        return AjaxResult.success(paper);
     }
 }

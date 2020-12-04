@@ -79,13 +79,6 @@ public class QuestionService implements BaseService<Question>{
     }
 
     public Set<Question> createTestPaper(TestPaperDto dto) {
-//        QueryWrapper<Question> ew = new QueryWrapper<>();
-//
-//        if (dto.getSingleNum()>0){
-//            ew.eq("qu_type", QuestionEnum.SINGLE);
-//            ew.orderBy(true,true,"RAND()");
-//            questionMapper.selectList(ew);
-//        }
         Set<Question> quSet = new HashSet<>();
         if (dto.getSingleNum()>0){
             Set<Question> set = questionMapper.randByQeAndLimit(QuestionEnum.SINGLE,dto.getSingleNum());
