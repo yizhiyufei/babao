@@ -1,13 +1,10 @@
 package com.babao.system.domain.pojo;
 
 import com.babao.system.domain.BaseEntity;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.ArrayList;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
 
 @Setter
@@ -16,6 +13,9 @@ public class TestPaper extends BaseEntity {
     private String title;
     private String paperNum;
     private Double score;
+    private Integer answerTime;
+    //备注
+    private String remark;
     /** 单选题列表 */
     private Set<Select> selects;
     /** 多选题列表 */

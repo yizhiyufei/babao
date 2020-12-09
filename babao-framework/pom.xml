@@ -86,18 +86,6 @@
 			<artifactId>mybatis-plus-boot-starter</artifactId>
 		</dependency>
 
-		<!-- 系统模块
-		<dependency>
-			<groupId>com.babao</groupId>
-			<artifactId>babao-system</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>mysql</groupId>
-					<artifactId>mysql-connector-java</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		-->
 
 		<!-- 获取系统信息 -->
 		<dependency>

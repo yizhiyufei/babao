@@ -23,7 +23,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @ClassName : QuestionController
@@ -108,12 +107,12 @@ public class QuestionController extends BaseController {
             }
             //如果是简答题redis存入字符串
             if (dto.getQuType() == QuestionEnum.SHORT){
-                redisService.saveStr(number,str);
+                redisService.saveOptions(number,str,1);
                 continue;
             }
             // TODO 正确答案没有指定保存
             //存在多个选择答案的题型rdis存入集合
-            redisService.saveSet(number,str);
+            redisService.saveOptions(number,str,2);
         }
         //批量保存
         questionService.batchAdd(quList);

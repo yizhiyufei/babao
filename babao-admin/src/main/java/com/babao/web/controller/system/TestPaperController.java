@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -54,6 +52,8 @@ public class TestPaperController extends BaseController {
     public AjaxResult saveAdd(TestPaperDto dto) {
 //        log.info(dto.toString());
         TestPaper paper = new TestPaper();
+        paper.setAnswerTime(dto.getAnswerTime());
+        paper.setRemark(dto.getRemark());
         Set<Question> quSet = questionService.createTestPaper(dto);
         for (Question q: quSet){
             switch (q.getQuType()){

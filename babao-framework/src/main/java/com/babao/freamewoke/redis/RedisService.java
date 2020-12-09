@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 import java.util.Set;
 
 @Service
@@ -29,21 +28,6 @@ public class RedisService {
 		valueOperations.increment(key);
 	}
 
-	/**
-	 * 保存字符串
-	 * @param key
-	 * @param value
-	 */
-	public void saveStr(String key, String value){
-		valueOperations.set(key,value);
-	}
-
-	/**
-	 * 保存无序集合
-	 */
-	public void saveSet(String key, String value) {
-		setOperations.add(key,value);
-	}
 
 	public String getValue(String key){
 		return (String) valueOperations.get(key);
@@ -52,5 +36,17 @@ public class RedisService {
 	public Set<Object> getSet(String key){
 		Set<Object> set = setOperations.members(key);
 		return set;
+	}
+
+	/**
+	 * 保存题目选项
+	 * @param number
+	 * @param value
+	 * @param i
+	 */
+	public void saveOptions(String number, String value, int i) {
+		String key = "quOptions:" + number;
+		if (i == 1) valueOperations.set(key,value);
+		if (i == 2) setOperations.add(key,value);
 	}
 }
