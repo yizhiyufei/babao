@@ -34,4 +34,29 @@ public class RichTextUtil {
         }
         return texts;
     }
+
+    public static Map<String,Map<String,List>> parseQuestion(String html){
+        //解析html
+        Document doc = Jsoup.parse(html);
+        Elements h3 = doc.select("h3");
+        Map<String,Map<String,List>>qumap = new HashMap<>();
+        for(Element e : h3){
+            Map<String,List>anMap = new HashMap<>();
+            List<String> options = new LinkedList<>();
+            List<String> correct = new LinkedList<>();
+            String q = e.text();
+            Elements p = doc.select("h3.r > p");
+            for (Element es :p){
+                options.add(es.text());
+                Elements b= es.select("b");
+                for (Element bs:b){
+                    correct.add(bs.text());
+                }
+            }
+            anMap.put("options",options);
+            anMap.put("correct",correct);
+            qumap.put(q,anMap);
+        }
+        return qumap;
+    }
 }

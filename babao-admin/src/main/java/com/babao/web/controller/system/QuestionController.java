@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @ClassName : QuestionController
@@ -88,34 +89,46 @@ public class QuestionController extends BaseController {
     @ResponseBody
     public AjaxResult saveAdd(QuestionDto dto){
         log.info(dto.toString());
-        List<String> texts = RichTextUtil.text(dto.getContent(),"p");
+        Map<String, Map<String,List>>qumap = RichTextUtil.parseQuestion(dto.getContent());
         List<Question> quList = new ArrayList<>();
+        for (String str : qumap.keySet()){
+            System.out.println("题目是:"+ str);
+            Map<String,List>mapList = qumap.get(str);
+            List<String> options = mapList.get("options");
+            List<String> correct = mapList.get("correct");
+            for (String o :options){
+                System.out.println("选项："+o);
+            }
+            for (String o :correct){
+                System.out.println("正确答案："+o);
+            }
 
-        // 保存题号
-        String number = null;
-        for(String str : texts){
-            //判断是否题目名
-            if (str.contains("Q:")){
-                Question qu = new Question(dto.getQuLevel(),dto.getQuType(),dto.getScore(),1);
-                BeanUtils.copyProperties(dto,qu);
-                qu.setQuName(str);
-                //生成题号
-                number = IdUtils.fastSimpleUUID();
-                qu.setQuNumber(number);
-                quList.add(qu);
-                continue;
-            }
-            //如果是简答题redis存入字符串
-            if (dto.getQuType() == QuestionEnum.SHORT){
-                redisService.saveOptions(number,str,1);
-                continue;
-            }
-            // TODO 正确答案没有指定保存
-            //存在多个选择答案的题型rdis存入集合
-            redisService.saveOptions(number,str,2);
         }
-        //批量保存
-        questionService.batchAdd(quList);
+//        // 保存题号
+//        String number = null;
+//        for(String str : texts){
+//            //判断是否题目名
+//            if (str.contains("Q:")){
+//                Question qu = new Question(dto.getQuLevel(),dto.getQuType(),dto.getScore(),1);
+//                BeanUtils.copyProperties(dto,qu);
+//                qu.setQuName(str);
+//                //生成题号
+//                number = IdUtils.fastSimpleUUID();
+//                qu.setQuNumber(number);
+//                quList.add(qu);
+//                continue;
+//            }
+//            //如果是简答题redis存入字符串
+//            if (dto.getQuType() == QuestionEnum.SHORT){
+//                redisService.saveOptions(number,str,1);
+//                continue;
+//            }
+//            // TODO 正确答案没有指定保存
+//            //存在多个选择答案的题型rdis存入集合
+//            redisService.saveOptions(number,str,2);
+//        }
+//        //批量保存
+//        questionService.batchAdd(quList);
         return AjaxResult.success();
     }
 }
