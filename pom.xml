@@ -37,7 +37,7 @@
 		<junit.version>4.12</junit.version>
 		<lombok.version>1.18.8</lombok.version>
 		<mybatis.version>3.3.2</mybatis.version>
-		<mongodb.version>2.1.1.RELEASE</mongodb.version>
+		<mongodb.version>3.3.5</mongodb.version>
 	</properties>
 
 	<dependencies>
